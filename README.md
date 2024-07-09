@@ -1,6 +1,6 @@
-# Nerfies
+# Safe MPC Alignment from Human Directional Feedback
 
-This is the repository that contains source code for the [Safe MPC Alignment website](https://nerfies.github.io).
+This is the repository that contains source code for the [Safe MPC Alignment website](https://zhi-xian-xie.github.io/safe_alignment_site/).
 
 If you find Safe MPC Alignment useful for your work please cite:
 ```
