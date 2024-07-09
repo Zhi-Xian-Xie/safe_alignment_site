@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Learn safety constraints from human corrections">
+  <meta name="keywords" content="Robot Safety, Human-Robot Interaction">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safe MPC Alignment with Human Directional Feedback</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/IRIS_icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Safe MPC Alignment with Human Directional Feedback</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://zhi-xian-xie.github.io/">Zhixian Xie</a><sup>1</sup>,</span>
+            <span class="author-block">
+                  <a href="https://search.asu.edu/profile/2727367">Wenlong Zhang</a><sup>1</sup>,</span>
+            <span class="author-block">
+                  <a href="https://search.asu.edu/profile/2422024">Yi Ren</a><sup>1</sup>,</span>
+            
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://zhaoranwang.github.io/">Zhaoran Wang</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.georgejpappas.org/">George J. Pappas</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://wanxinjin.github.io/">Wanxin Jin</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Arizona State University,</span>
+            <span class="author-block"><sup>2</sup>Northwestern University,</span>
+<!--             <span class="author-block"><sup>2</sup>Google Research</span> -->
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>3</sup>University of Pennsylvania</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2407.04216"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2407.04216"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=QOODShHLQJE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/asu-iris/Safe-MPC-Alignment"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div style="text-align: center;">
+        <img src="./static/images/Holistic.png"
+             alt="The holistic framework of the proposed method."
+             style="width: 60%; display: block; margin: 0 auto 20px auto;" />
+      </div>
+      <h2 class="subtitle has-text-centered">
+        The proposed method use human directional feedback to do safety alignment between MPC controller and Human.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In safety-critical robot control or planning, specifying
+            safety constraints manually or learning them from demonstrations
+            can be challenging. In this paper, we propose an alignment method
+            to enable a robot to learn a safety constraint in its model predictive
+            control (MPC) policy from human directional feedback online.
+            This method is based on the empirical observation that human
+            directional feedback, when available, tends to guide the robot
+            toward safer regions. The proposed method only requires the
+            direction of human feedback to update the learning hypothesis
+            space. It is certifiable, providing an upper bound on the total
+            number of human feedback in the case of successful learning
+            of safety constraints, or declaring the misspecification of the
+            hypothesis space, i.e., the true implicit safety constraint cannot
+            be found within the specified hypothesis space. We evaluated the
+            proposed method using numerical examples and user studies in
+            two developed simulation games. Additionally, we implemented
+            and tested the proposed method on a real-world Franka robot arm
+            performing water-pouring tasks in a user study. The simulation
+            and experimental results demonstrate the efficacy and efficiency
+            of our method, showing that it enables a robot to successfully
+            learn safety constraints with a small handful (tens) of human
+            directional corrections.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Contribution</h2>
+            <div class="content has-text-justified">
+              <p>
+                <b>(I) We propose the method of safe MPC alignment with human directional feedback.</b>  
+                The method enables a robot to online learn a safe MPC policy from a human directional corrections.
+                To our knowledge, this is the first work for online interactive learning of safety constraint from human feedback. 
+              </p>
+              <p>
+                <b>(II) We theoretically show the  human-data efficiency of the proposed safe MPC alignment method:</b> 
+                the proposed method is guaranteed to have exponential convergence with finite human interactions/corrections. 
+                Furthermore, we also prove that the proposed algorithm enables the identification of hypothesis space misspecification failure. 
+              </p>
+              <p>
+                <b>(III) We conduct extensive user studies to validate the effectiveness of the proposed method,</b> 
+                including user studies on two computer simulation games and one real-world experiment of teaching a Franka robot arm for water pouring.
+                The results demonstrate the effectiveness and efficiency of the proposed method, 
+                and show that robots can successfully learn a safe MPC policy with only tens of human corrections.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+
+        
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-four-fifths"> -->
+      <div class="column">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <!-- <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+            <iframe src="https://www.youtube.com/embed/QOODShHLQJE?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!-- <video id="full_demo" preload="auto" autoplay="false" controls muted loop playsinline height="100%">
+              <source src="./static/videos/uav_raw.mp4"
+                      type="video/mp4">
+            </video> -->
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <h2 class="title is-3"  style="margin-bottom: 40px;">Mujoco Demos</h2>
+    </div>
+    <div class="columns is-centered">
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Drone Navigation Game</h2>
+          <p>
+            The user use directional corrections to guide the UAV through a gate in mujoco.
+          </p>
+          <video id="mujoco-uav" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/uav_raw.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3">Arm Reaching Game</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              The user use directional corrections to guide the Franka robot arm's gripper through two bars in mujoco.
+            </p>
+            <video id="mujoco-arm" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/arm_demo_merge.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <!--/ Matting. -->
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{xie2024safempcalignmenthuman,
+      title={Safe MPC Alignment with Human Directional Feedback}, 
+      author={Zhixian Xie and Wenlong Zhang and Yi Ren and Zhaoran Wang and George J. Pappas and Wanxin Jin},
+      year={2024},
+      eprint={2407.04216},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2407.04216}, 
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/pdf/2407.04216">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/asu-iris/Safe-MPC-Alignment" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
