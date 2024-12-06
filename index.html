@@ -298,6 +298,7 @@
           <h2 class="title is-3">Drone Navigation Game</h2>
           <p>
             The user use directional corrections to guide the UAV through a gate in mujoco.
+            A trial is deemed successful when the drone navigates through the gate without collision for 6 consecutive times.
           </p>
           <video id="mujoco-uav" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/uav_raw.mp4" type="video/mp4">
@@ -312,7 +313,8 @@
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              The user use directional corrections to guide the Franka robot arm's gripper through two bars in mujoco.
+              The user use directional corrections to guide the Franka robot arm's gripper through two bars in mujoco. 
+              The constraint is only applied on the end effector so the collision between the link and the bars are not considered.
             </p>
             <video id="mujoco-arm" autoplay controls muted loop playsinline height="100%">
               <source src="./static/videos/arm_demo_merge.mp4" type="video/mp4">
